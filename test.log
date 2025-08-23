@@ -1,0 +1,510 @@
+Executing HTTP POST: key=1, val=V_1
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=2, val=V_2
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=3, val=V_3
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP GET: key=1
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Result: V_1
+Executing HTTP GET: key=2
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+Result: V_2
+Executing HTTP GET: key=3
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+Result: V_3
+Executing RPC POST: key=1, val=V_1
+KVStore service found on port: 744
+Sending POST request for key 1...
+POST request sent successfully.
+OK
+Executing RPC POST: key=2, val=V_2
+KVStore service found on port: 744
+Sending POST request for key 2...
+POST request sent successfully.
+OK
+Executing RPC POST: key=3, val=V_3
+KVStore service found on port: 744
+Sending POST request for key 3...
+POST request sent successfully.
+OK
+Executing RPC GET: key=1
+KVStore service found on port: 744
+Sending GET request for key 1...
+Result: V_1
+Executing RPC GET: key=2
+KVStore service found on port: 744
+Sending GET request for key 2...
+Result: V_2
+Executing RPC GET: key=3
+KVStore service found on port: 744
+Sending GET request for key 3...
+Result: V_3
+Testing polymorphic interaction...
+KVStore service found on port: 744
+Sending POST request for key 1...
+POST request sent successfully.
+KVStore service found on port: 744
+Sending POST request for key 2...
+POST request sent successfully.
+KVStore service found on port: 744
+Sending POST request for key 3...
+POST request sent successfully.
+KVStore service found on port: 744
+Sending GET request for key 2...
+KVStore service found on port: 744
+Sending GET request for key 3...
+KVStore service found on port: 744
+Sending GET request for key 1...
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Executing HTTP POST: key=1, val=V_1
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=2, val=V_2
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=3, val=V_3
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP GET: key=1
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Result: V_1
+Executing HTTP GET: key=2
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+Result: V_2
+Executing HTTP GET: key=3
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+Result: V_3
+Executing RPC POST: key=1, val=V_1
+KVStore service found on port: 981
+Sending POST request for key 1...
+POST request sent successfully.
+OK
+Executing RPC POST: key=2, val=V_2
+KVStore service found on port: 981
+Sending POST request for key 2...
+POST request sent successfully.
+OK
+Executing RPC POST: key=3, val=V_3
+KVStore service found on port: 981
+Sending POST request for key 3...
+POST request sent successfully.
+OK
+Executing RPC GET: key=1
+KVStore service found on port: 981
+Sending GET request for key 1...
+Result: V_1
+Executing RPC GET: key=2
+KVStore service found on port: 981
+Sending GET request for key 2...
+Result: V_2
+Executing RPC GET: key=3
+KVStore service found on port: 981
+Sending GET request for key 3...
+Result: V_3
+Testing polymorphic interaction...
+KVStore service found on port: 981
+Sending POST request for key 1...
+POST request sent successfully.
+KVStore service found on port: 981
+Sending POST request for key 2...
+POST request sent successfully.
+KVStore service found on port: 981
+Sending POST request for key 3...
+POST request sent successfully.
+KVStore service found on port: 981
+Sending GET request for key 2...
+KVStore service found on port: 981
+Sending GET request for key 3...
+KVStore service found on port: 981
+Sending GET request for key 1...
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Executing HTTP POST: key=1, val=V_1
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=2, val=V_2
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=3, val=V_3
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP GET: key=1
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Result: V_1
+Executing HTTP GET: key=2
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+Result: V_2
+Executing HTTP GET: key=3
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+Result: V_3
+Executing RPC POST: key=1, val=V_1
+KVStore service found on port: 627
+Sending POST request for key 1...
+[POST] Received key=1, value=V_1
+[POST] key=1, value=V_1
+POST request sent successfully.
+OK
+Executing RPC POST: key=2, val=V_2
+KVStore service found on port: 627
+Sending POST request for key 2...
+[POST] Received key=2, value=V_2
+[POST] key=2, value=V_2
+POST request sent successfully.
+OK
+Executing RPC POST: key=3, val=V_3
+KVStore service found on port: 627
+Sending POST request for key 3...
+[POST] Received key=3, value=V_3
+[POST] key=3, value=V_3
+POST request sent successfully.
+OK
+Executing RPC GET: key=1
+KVStore service found on port: 627
+Sending GET request for key 1...
+[GET] Received key=1
+[GET] key=1 -> V_1
+Result: V_1
+Executing RPC GET: key=2
+KVStore service found on port: 627
+Sending GET request for key 2...
+[GET] Received key=2
+[GET] key=2 -> V_2
+Result: V_2
+Executing RPC GET: key=3
+KVStore service found on port: 627
+Sending GET request for key 3...
+[GET] Received key=3
+[GET] key=3 -> V_3
+Result: V_3
+Testing polymorphic interaction...
+KVStore service found on port: 627
+Sending POST request for key 1...
+[POST] Received key=1, value=First value
+[POST] key=1, value=First value
+POST request sent successfully.
+KVStore service found on port: 627
+Sending POST request for key 2...
+[POST] Received key=2, value=Second value
+[POST] key=2, value=Second value
+POST request sent successfully.
+KVStore service found on port: 627
+Sending POST request for key 3...
+[POST] Received key=3, value=Third value
+[POST] key=3, value=Third value
+POST request sent successfully.
+KVStore service found on port: 627
+Sending GET request for key 2...
+[GET] Received key=2
+[GET] key=2 -> Second value
+KVStore service found on port: 627
+Sending GET request for key 3...
+[GET] Received key=3
+[GET] key=3 -> Third value
+KVStore service found on port: 627
+Sending GET request for key 1...
+[GET] Received key=1
+[GET] key=1 -> First value
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/home/z1172480/proj_rpc/dist/http_server.py", line 94, in <module>
+    run()
+  File "/home/z1172480/proj_rpc/dist/http_server.py", line 85, in run
+    print(f"HTTP KV server listening on http://{HOST}:{PORT}", file=stderr)
+                                                                    ^^^^^^
+NameError: name 'stderr' is not defined
+HTTP KV server listening on http://127.0.0.1:2435
+Executing HTTP POST: key=1, val=V_1
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=2, val=V_2
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=3, val=V_3
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP GET: key=1
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Result: V_1
+Executing HTTP GET: key=2
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+Result: V_2
+Executing HTTP GET: key=3
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+Result: V_3
+Executing RPC POST: key=1, val=V_1
+KVStore service found on port: 955
+Sending POST request for key 1...
+[POST] Received key=1, value=V_1
+[POST] key=1, value=V_1
+POST request sent successfully.
+OK
+Executing RPC POST: key=2, val=V_2
+KVStore service found on port: 955
+Sending POST request for key 2...
+[POST] Received key=2, value=V_2
+[POST] key=2, value=V_2
+POST request sent successfully.
+OK
+Executing RPC POST: key=3, val=V_3
+KVStore service found on port: 955
+Sending POST request for key 3...
+[POST] Received key=3, value=V_3
+[POST] key=3, value=V_3
+POST request sent successfully.
+OK
+Executing RPC GET: key=1
+KVStore service found on port: 955
+Sending GET request for key 1...
+[GET] Received key=1
+[GET] key=1 -> V_1
+Result: V_1
+Executing RPC GET: key=2
+KVStore service found on port: 955
+Sending GET request for key 2...
+[GET] Received key=2
+[GET] key=2 -> V_2
+Result: V_2
+Executing RPC GET: key=3
+KVStore service found on port: 955
+Sending GET request for key 3...
+[GET] Received key=3
+[GET] key=3 -> V_3
+Result: V_3
+Testing polymorphic interaction...
+KVStore service found on port: 955
+Sending POST request for key 1...
+[POST] Received key=1, value=First value
+[POST] key=1, value=First value
+POST request sent successfully.
+KVStore service found on port: 955
+Sending POST request for key 2...
+[POST] Received key=2, value=Second value
+[POST] key=2, value=Second value
+POST request sent successfully.
+KVStore service found on port: 955
+Sending POST request for key 3...
+[POST] Received key=3, value=Third value
+[POST] key=3, value=Third value
+POST request sent successfully.
+KVStore service found on port: 955
+Sending GET request for key 2...
+[GET] Received key=2
+[GET] key=2 -> Second value
+KVStore service found on port: 955
+Sending GET request for key 3...
+[GET] Received key=3
+[GET] key=3 -> Third value
+KVStore service found on port: 955
+Sending GET request for key 1...
+[GET] Received key=1
+[GET] key=1 -> First value
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Executing HTTP POST: key=1, val=V_1
+HTTP KV server listening on http://127.0.0.1:2435[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=2, val=V_2
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=3, val=V_3
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP GET: key=1
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Result: V_1
+Executing HTTP GET: key=2
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+Result: V_2
+Executing HTTP GET: key=3
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+Result: V_3
+Executing RPC POST: key=1, val=V_1
+KVStore service found on port: 687
+Sending POST request for key 1...
+[POST] Received key=1, value=V_1
+[POST] key=1, value=V_1
+POST request sent successfully.
+OK
+Executing RPC POST: key=2, val=V_2
+KVStore service found on port: 687
+Sending POST request for key 2...
+[POST] Received key=2, value=V_2
+[POST] key=2, value=V_2
+POST request sent successfully.
+OK
+Executing RPC POST: key=3, val=V_3
+KVStore service found on port: 687
+Sending POST request for key 3...
+[POST] Received key=3, value=V_3
+[POST] key=3, value=V_3
+POST request sent successfully.
+OK
+Executing RPC GET: key=1
+KVStore service found on port: 687
+Sending GET request for key 1...
+[GET] Received key=1
+[GET] key=1 -> V_1
+Result: V_1
+Executing RPC GET: key=2
+KVStore service found on port: 687
+Sending GET request for key 2...
+[GET] Received key=2
+[GET] key=2 -> V_2
+Result: V_2
+Executing RPC GET: key=3
+KVStore service found on port: 687
+Sending GET request for key 3...
+[GET] Received key=3
+[GET] key=3 -> V_3
+Result: V_3
+Testing polymorphic interaction...
+KVStore service found on port: 687
+Sending POST request for key 1...
+[POST] Received key=1, value=First value
+[POST] key=1, value=First value
+POST request sent successfully.
+KVStore service found on port: 687
+Sending POST request for key 2...
+[POST] Received key=2, value=Second value
+[POST] key=2, value=Second value
+POST request sent successfully.
+KVStore service found on port: 687
+Sending POST request for key 3...
+[POST] Received key=3, value=Third value
+[POST] key=3, value=Third value
+POST request sent successfully.
+KVStore service found on port: 687
+Sending GET request for key 2...
+[GET] Received key=2
+[GET] key=2 -> Second value
+KVStore service found on port: 687
+Sending GET request for key 3...
+[GET] Received key=3
+[GET] key=3 -> Third value
+KVStore service found on port: 687
+Sending GET request for key 1...
+[GET] Received key=1
+[GET] key=1 -> First value
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+./test.sh: line 45: dist/rpc_server: No such file or directory
+python3: can't open file '/home/z1172480/proj_rpc/dist/http_server.py': [Errno 2] No such file or directory
+./test.sh: line 45: dist/rpc_server: No such file or directory
+python3: can't open file '/home/z1172480/proj_rpc/dist/http_server.py': [Errno 2] No such file or directory
+Executing HTTP POST: key=1, val=V_1
+HTTP KV server listening on http://127.0.0.1:2435[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=2, val=V_2
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP POST: key=3, val=V_3
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+OK
+Executing HTTP GET: key=1
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
+Result: V_1
+Executing HTTP GET: key=2
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+Result: V_2
+Executing HTTP GET: key=3
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+Result: V_3
+Executing RPC POST: key=1, val=V_1
+KVStore service found on port: 808
+Sending POST request for key 1...
+[POST] Received key=1, value=V_1
+[POST] key=1, value=V_1
+POST request sent successfully.
+OK
+Executing RPC POST: key=2, val=V_2
+KVStore service found on port: 808
+Sending POST request for key 2...
+[POST] Received key=2, value=V_2
+[POST] key=2, value=V_2
+POST request sent successfully.
+OK
+Executing RPC POST: key=3, val=V_3
+KVStore service found on port: 808
+Sending POST request for key 3...
+[POST] Received key=3, value=V_3
+[POST] key=3, value=V_3
+POST request sent successfully.
+OK
+Executing RPC GET: key=1
+KVStore service found on port: 808
+Sending GET request for key 1...
+[GET] Received key=1
+[GET] key=1 -> V_1
+Result: V_1
+Executing RPC GET: key=2
+KVStore service found on port: 808
+Sending GET request for key 2...
+[GET] Received key=2
+[GET] key=2 -> V_2
+Result: V_2
+Executing RPC GET: key=3
+KVStore service found on port: 808
+Sending GET request for key 3...
+[GET] Received key=3
+[GET] key=3 -> V_3
+Result: V_3
+Testing polymorphic interaction...
+KVStore service found on port: 808
+Sending POST request for key 1...
+[POST] Received key=1, value=First value
+[POST] key=1, value=First value
+POST request sent successfully.
+KVStore service found on port: 808
+Sending POST request for key 2...
+[POST] Received key=2, value=Second value
+[POST] key=2, value=Second value
+POST request sent successfully.
+KVStore service found on port: 808
+Sending POST request for key 3...
+[POST] Received key=3, value=Third value
+[POST] key=3, value=Third value
+POST request sent successfully.
+KVStore service found on port: 808
+Sending GET request for key 2...
+[GET] Received key=2
+[GET] key=2 -> Second value
+KVStore service found on port: 808
+Sending GET request for key 3...
+[GET] Received key=3
+[GET] key=3 -> Third value
+KVStore service found on port: 808
+Sending GET request for key 1...
+[GET] Received key=1
+[GET] key=1 -> First value
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "POST /post HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=2 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=3 HTTP/1.1" 200 -
+[127.0.0.1] "GET /get?key=1 HTTP/1.1" 200 -
