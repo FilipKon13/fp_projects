@@ -10,7 +10,12 @@ DIST_DIR=dist
 
 # Haskell
 echo "Building Haskell..."
-ghc -v -package-db network-3.2.8.0/dist-newstyle/packagedb/ghc-9.4.7 -package network -isrc -o ${DIST_DIR}/main -odir ${BUILD_DIR} src/Main.hs 
+ghc -package-db network-3.2.8.0/dist-newstyle/packagedb/ghc-9.4.7 \
+    -package network \
+    -isrc \
+    -o ${DIST_DIR}/main \
+    -odir ${BUILD_DIR} \
+    src/Main.hs
 
 # C
 # Compile if we have `rpc.h` header file, otherwise use provided binary (e.g. on `student`)
