@@ -21,7 +21,7 @@ jobs:
       - name: Setup Haskell
         uses: haskell/actions/setup@v2
         with:
-          ghc-version: '9.4.5' # Use a specific GHC version for reproducibility.
+          ghc-version: '9.4.7'
       
       - name: Run build script
         run: |
