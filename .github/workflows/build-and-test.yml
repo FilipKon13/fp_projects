@@ -24,10 +24,13 @@ jobs:
         with:
           ghc-version: '9.4.7'
 
-      - name: Setup Network and Random package
+      - name: Install packages
         run: |
           cabal install random --lib
           cabal install network-3.2.8.0 --lib
+          cabal install bytestring --lib
+          cabal install binary --lib
+          cabal install containers --lib
       
       - name: Run build script
         run: |
