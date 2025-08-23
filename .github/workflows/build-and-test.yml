@@ -28,8 +28,6 @@ jobs:
         run: |
           cabal install random --lib
           cabal install network-3.2.8.0 --lib
-          cabal configure
-          cabal build
       
       - name: Run build script
         run: |
