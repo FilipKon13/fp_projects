@@ -22,10 +22,15 @@ jobs:
       - name: Run build script
         run: |
           cabal update
-          chmod +x build.sh
-          ./build.sh
+          bash -x build.sh
 
       - name: Run test script
         run: |
-          chmod +x test.sh
-          ./test.sh
+          bash -x test.sh
+      
+      - name: Upload test log
+        uses: actions/upload-artifact@v4
+        if: always() # This ensures the step runs even if the previous step fails
+        with:
+          name: test-results-log
+          path: test.log
