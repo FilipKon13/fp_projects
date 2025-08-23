@@ -19,19 +19,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ghc make gcc build-essential libtirpc-dev rpcbind
       
-      - name: Setup Haskell
-        uses: haskell-actions/setup@v2
-        with:
-          ghc-version: '9.4.7'
-
-      - name: Install packages
-        run: |
-          cabal install random --lib
-          cabal install network-3.2.8.0 --lib
-          cabal install bytestring --lib
-          cabal install binary --lib
-          cabal install containers --lib
-      
       - name: Run build script
         run: |
           chmod +x build.sh
