@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   build-and-test:
@@ -23,11 +24,14 @@ jobs:
         with:
           ghc-version: '9.4.7'
 
-      - name: Setup Network package
+      - name: Setup Network and Random package
         run: |
           cd network-3.2.8.0
           autoreconf -i
-          cabal update; cabal configure; cabal build
+          cabal update
+          cabal install --lib random
+          cabal configure
+          cabal build
       
       - name: Run build script
         run: |
