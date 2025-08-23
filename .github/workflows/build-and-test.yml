@@ -26,16 +26,13 @@ jobs:
 
       - name: Setup Network and Random package
         run: |
-          cd network-3.2.8.0
-          autoreconf -i
-          cabal update
-          cabal install --lib random
+          cabal install random --lib
+          cabal install network-3.2.8.0 --lib
           cabal configure
           cabal build
       
       - name: Run build script
         run: |
-          rm -rf ~/.ghc/
           chmod +x build.sh
           ./build.sh
 
