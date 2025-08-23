@@ -2,15 +2,16 @@
 
 set -e
 
-mkdir -p build
-mkdir -p dist
-
 BUILD_DIR=build
 DIST_DIR=dist
 
+mkdir -p ${BUILD_DIR}
+mkdir -p ${DIST_DIR}
+
 # Haskell
 echo "Building Haskell..."
-ghc -v -package-db network-3.2.8.0/dist-newstyle/packagedb/ghc-9.4.7 -package network -isrc -o ${DIST_DIR}/main -odir ${BUILD_DIR} src/Main.hs 
+cabal build
+cabal install --install-method=copy --installdir=${DIST_DIR} --overwrite-policy=always
 
 # C
 # Compile if we have `rpc.h` header file, otherwise use provided binary (e.g. on `student`)

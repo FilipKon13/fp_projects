@@ -19,26 +19,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ghc make gcc build-essential libtirpc-dev rpcbind
       
-      - name: Setup Haskell
-        uses: haskell-actions/setup@v2
-        with:
-          ghc-version: '9.4.7'
-
-      - name: Setup Network and Random package
-        run: |
-          cd network-3.2.8.0
-          autoreconf -i
-          cabal update
-          cabal install --lib random
-          cabal configure
-          cabal build
-      
       - name: Run build script
         run: |
-          chmod +x build.sh
-          ./build.sh
+          cabal update
+          bash -x build.sh
 
       - name: Run test script
         run: |
-          chmod +x test.sh
-          ./test.sh
+          bash -x test.sh
+      
+      - name: Upload test log
+        uses: actions/upload-artifact@v4
+        if: always() # This ensures the step runs even if the previous step fails
+        with:
+          name: test-results-log
+          path: test.log

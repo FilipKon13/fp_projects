@@ -40,11 +40,21 @@ kill_servers
 # Ensure rpcbind is running
 systemctl is-active --quiet rpcbind || sudo systemctl start rpcbind
 
+echo "rpcbind daemon"
+ps -aux | grep rpcbind
+
 # Start HTTP server
 python3 dist/http_server.py &>> test.log &
 
+echo "HTTP server"
+ps -aux | grep http_server.py
+
 # Start RPC server
 dist/rpc_server &>> test.log &
+
+echo "RPC server"
+ps -aux | grep rpc_server
+rpcinfo -p
 
 # Verify that the servers are running
 if ! pgrep -f "python3 dist/http_server.py" > /dev/null;
