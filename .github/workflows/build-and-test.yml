@@ -21,6 +21,7 @@ jobs:
       
       - name: Run build script
         run: |
+          cabal update
           chmod +x build.sh
           ./build.sh
 
