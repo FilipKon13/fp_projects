@@ -22,6 +22,12 @@ jobs:
         uses: haskell/actions/setup@v2
         with:
           ghc-version: '9.4.7'
+
+      - name: Setup Network package
+        run: |
+          cd network-3.2.8.0
+          autoreconf -i
+          cabal configure; cabal build
       
       - name: Run build script
         run: |

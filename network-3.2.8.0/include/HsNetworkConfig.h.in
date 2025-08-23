@@ -1,65 +1,65 @@
 /* include/HsNetworkConfig.h.in.  Generated from configure.ac by autoheader.  */
 
-/* Define to 1 if you have the `accept4' function. */
+/* Define to 1 if you have the 'accept4' function. */
 #undef HAVE_ACCEPT4
 
 /* Define to 1 if you have the <arpa/inet.h> header file. */
 #undef HAVE_ARPA_INET_H
 
-/* Define to 1 if you have the declaration of `AI_ADDRCONFIG', and to 0 if you
+/* Define to 1 if you have the declaration of 'AI_ADDRCONFIG', and to 0 if you
    don't. */
 #undef HAVE_DECL_AI_ADDRCONFIG
 
-/* Define to 1 if you have the declaration of `AI_ALL', and to 0 if you don't.
+/* Define to 1 if you have the declaration of 'AI_ALL', and to 0 if you don't.
    */
 #undef HAVE_DECL_AI_ALL
 
-/* Define to 1 if you have the declaration of `AI_NUMERICSERV', and to 0 if
+/* Define to 1 if you have the declaration of 'AI_NUMERICSERV', and to 0 if
    you don't. */
 #undef HAVE_DECL_AI_NUMERICSERV
 
-/* Define to 1 if you have the declaration of `AI_V4MAPPED', and to 0 if you
+/* Define to 1 if you have the declaration of 'AI_V4MAPPED', and to 0 if you
    don't. */
 #undef HAVE_DECL_AI_V4MAPPED
 
-/* Define to 1 if you have the declaration of `IPPROTO_IP', and to 0 if you
+/* Define to 1 if you have the declaration of 'IPPROTO_IP', and to 0 if you
    don't. */
 #undef HAVE_DECL_IPPROTO_IP
 
-/* Define to 1 if you have the declaration of `IPPROTO_IPV6', and to 0 if you
+/* Define to 1 if you have the declaration of 'IPPROTO_IPV6', and to 0 if you
    don't. */
 #undef HAVE_DECL_IPPROTO_IPV6
 
-/* Define to 1 if you have the declaration of `IPPROTO_TCP', and to 0 if you
+/* Define to 1 if you have the declaration of 'IPPROTO_TCP', and to 0 if you
    don't. */
 #undef HAVE_DECL_IPPROTO_TCP
 
-/* Define to 1 if you have the declaration of `IPV6_V6ONLY', and to 0 if you
+/* Define to 1 if you have the declaration of 'IPV6_V6ONLY', and to 0 if you
    don't. */
 #undef HAVE_DECL_IPV6_V6ONLY
 
-/* Define to 1 if you have the declaration of `IP_DONTFRAG', and to 0 if you
+/* Define to 1 if you have the declaration of 'IP_DONTFRAG', and to 0 if you
    don't. */
 #undef HAVE_DECL_IP_DONTFRAG
 
-/* Define to 1 if you have the declaration of `IP_MTU_DISCOVER', and to 0 if
+/* Define to 1 if you have the declaration of 'IP_MTU_DISCOVER', and to 0 if
    you don't. */
 #undef HAVE_DECL_IP_MTU_DISCOVER
 
-/* Define to 1 if you have the declaration of `SO_PEERCRED', and to 0 if you
+/* Define to 1 if you have the declaration of 'SO_PEERCRED', and to 0 if you
    don't. */
 #undef HAVE_DECL_SO_PEERCRED
 
 /* Define to 1 if you have the <fcntl.h> header file. */
 #undef HAVE_FCNTL_H
 
-/* Define to 1 if you have the `gai_strerror' function. */
+/* Define to 1 if you have the 'gai_strerror' function. */
 #undef HAVE_GAI_STRERROR
 
-/* Define to 1 if you have the `gethostent' function. */
+/* Define to 1 if you have the 'gethostent' function. */
 #undef HAVE_GETHOSTENT
 
-/* Define to 1 if you have the `getpeereid' function. */
+/* Define to 1 if you have the 'getpeereid' function. */
 #undef HAVE_GETPEEREID
 
 /* Define to 1 if you have the <inttypes.h> header file. */
@@ -98,16 +98,16 @@
 /* Define to 1 if you have the <string.h> header file. */
 #undef HAVE_STRING_H
 
-/* Define to 1 if `msg_accrights' is a member of `struct msghdr'. */
+/* Define to 1 if 'msg_accrights' is a member of 'struct msghdr'. */
 #undef HAVE_STRUCT_MSGHDR_MSG_ACCRIGHTS
 
-/* Define to 1 if `msg_control' is a member of `struct msghdr'. */
+/* Define to 1 if 'msg_control' is a member of 'struct msghdr'. */
 #undef HAVE_STRUCT_MSGHDR_MSG_CONTROL
 
-/* Define to 1 if `sa_len' is a member of `struct sockaddr'. */
+/* Define to 1 if 'sa_len' is a member of 'struct sockaddr'. */
 #undef HAVE_STRUCT_SOCKADDR_SA_LEN
 
-/* Define to 1 if the system has the type `struct ucred'. */
+/* Define to 1 if the system has the type 'struct ucred'. */
 #undef HAVE_STRUCT_UCRED
 
 /* Define to 1 if you have the <sys/socket.h> header file. */
@@ -146,10 +146,10 @@
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
 
-/* Define to 1 if all of the C90 standard headers exist (not just the ones
+/* Define to 1 if all of the C89 standard headers exist (not just the ones
    required in a freestanding environment). This macro is provided for
    backward compatibility; new code need not use it. */
 #undef STDC_HEADERS
 
-/* Define to empty if `const' does not conform to ANSI C. */
+/* Define to empty if 'const' does not conform to ANSI C. */
 #undef const

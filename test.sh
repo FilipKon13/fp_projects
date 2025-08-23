@@ -32,6 +32,8 @@ verify_interaction() {
 
 MAIN="dist/main"
 
+rm -f test.log
+
 # Kill servers if running
 kill_servers
 
