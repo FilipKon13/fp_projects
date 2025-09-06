@@ -1,0 +1,6 @@
+let my_tuple = <1, y, f x> in
+
+let my_pair = <10, 20> in
+let add_pair = fun <x, y> -> x + y in
+
+<add_pair my_pair, (\ <f, g> x . f (g x)) <(\y.y+1), (\z.z*2)> 10>  // Should evaluate to <30, 21>

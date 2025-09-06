@@ -9,16 +9,19 @@ type operator =
   | Eq
   | Comma
   | Arrow
+  | Plus
+  | Minus
+  | Mul
+  | Comp
 
 type keyword = 
   | Let
   | In
   | Fun
+  | Ite
 
-type literal = 
-  | String of string
+type literal =
   | Int of int
-  | Char of char
 
 type token = 
   | Word of string
@@ -37,11 +40,14 @@ let token_to_string = function
   | Op Eq -> "Eq"
   | Op Comma -> "Comma"
   | Op Arrow -> "Arrow"
+  | Op Plus -> "Plus"
+  | Op Minus -> "Minus"
+  | Op Mul -> "Mul"
+  | Op Comp -> "Comp"
   | Keyword Let -> "Let"
   | Keyword In -> "In"
   | Keyword Fun -> "Fun"
-  | Literal (String s) -> Printf.sprintf "String(%s)" s
+  | Keyword Ite -> "Ite"
   | Literal (Int i) -> Printf.sprintf "Int(%d)" i
-  | Literal (Char c) -> Printf.sprintf "Char(%c)" c
 
 let print_token (t : token) = token_to_string t |> Printf.printf "%s"  

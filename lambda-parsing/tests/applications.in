@@ -1,0 +1,3 @@
+// Applications are left-associative.
+// `f a b c` is parsed as `((f a) b) c`.
+f a b c

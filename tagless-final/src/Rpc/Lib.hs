@@ -13,24 +13,23 @@ import Control.Exception (Exception, throwIO)
 import Data.Typeable (Typeable)
 import System.IO (hPutStrLn, stderr)
 
--- | Custom exception for RPC errors
 data RPCException = RPCReplyError String deriving (Show, Typeable)
 instance Exception RPCException
 
--- | RPC program constants from the .x file
+-- RPC program constants from the .x file
 kvStoreProg, kvStoreVers, kvStorePostProc, kvStoreGetProc :: Word32
 kvStoreProg     = 0x20000001
 kvStoreVers     = 1
 kvStorePostProc = 1 -- The 'POST' procedure is ID 1
 kvStoreGetProc  = 2 -- The 'GET' procedure is ID 2
 
--- | Standard Portmapper (rpcbind) constants
+-- Standard Portmapper (rpcbind) constants
 pmapProg, pmapVers, pmapGetPortProc :: Word32
 pmapProg        = 100000
 pmapVers        = 2
 pmapGetPortProc = 3 -- Procedure to get the port of a registered service
 
--- | Standard RPC constants
+-- Standard RPC constants
 rpcVersion :: Word32
 rpcVersion = 2
 
@@ -40,7 +39,6 @@ msgTypeCall = 0
 authNull :: Word32
 authNull = 0
 
--- | Performs a POST request.
 postRequestRpc :: String -> Int -> String -> IO ()
 postRequestRpc host key value = withSocketsDo $ do
     serverPort <- getRemotePort host kvStoreProg kvStoreVers
@@ -50,7 +48,6 @@ postRequestRpc host key value = withSocketsDo $ do
     sendPostRequest host (show serverPort) key value
     hPutStrLn stderr "POST request sent successfully."
 
--- | Performs a GET request and returns the resulting string.
 getRequestRpc :: String -> Int -> IO String
 getRequestRpc host key = withSocketsDo $ do
     serverPort <- getRemotePort host kvStoreProg kvStoreVers
@@ -59,7 +56,6 @@ getRequestRpc host key = withSocketsDo $ do
     hPutStrLn stderr $ "Sending GET request for key " ++ show key ++ "..."
     sendGetRequest host (show serverPort) key
 
--- | Helper for the POST RPC call.
 sendPostRequest :: HostName -> ServiceName -> Int -> String -> IO ()
 sendPostRequest host port key value = do
     xid <- randomIO :: IO Word32
@@ -83,7 +79,6 @@ sendPostRequest host port key value = do
     _ <- sendAndReceive host port (addRecordMarker payload)
     return ()
 
--- | Helper for the GET RPC call.
 sendGetRequest :: HostName -> ServiceName -> Int -> IO String
 sendGetRequest host port key = do
     xid <- randomIO :: IO Word32
@@ -102,10 +97,8 @@ sendGetRequest host port key = do
     let request = addRecordMarker payload
     response <- sendAndReceive host port request
     
-    -- Parse the response to extract the string
     parseGetResponse response
 
--- | Parses the server's reply to a GET request.
 parseGetResponse :: B.ByteString -> IO String
 parseGetResponse rawResponse =
     -- The XDR string is located after the record marker (4 bytes) and RPC header (24 bytes)
@@ -122,7 +115,7 @@ parseGetResponse rawResponse =
         bs <- getLazyByteString (fromIntegral len)
         return $ C8.unpack (B.toStrict bs)
 
--- | Contacts rpcbind to get the port of a service.
+-- Contacts rpcbind to get the port of a service.
 getRemotePort :: HostName -> Word32 -> Word32 -> IO PortNumber
 getRemotePort host prog vers = do
     xid <- randomIO :: IO Word32
@@ -147,14 +140,12 @@ getRemotePort host prog vers = do
     let port = runGet getWord32be (B.drop (B.length response - 4) response)
     return $ fromIntegral port
 
--- | Prepends the 4-byte RPC record marker for TCP transport.
 addRecordMarker :: B.ByteString -> B.ByteString
 addRecordMarker payload =
     let len = fromIntegral (B.length payload) :: Word32
         marker = runPut $ putWord32be (len .|. 0x80000000)
     in marker `B.append` payload
 
--- | Generic TCP send/receive helper, forced to use IPv4.
 sendAndReceive :: HostName -> ServiceName -> B.ByteString -> IO B.ByteString
 sendAndReceive host port request = do
     let hints = defaultHints { addrSocketType = Stream, addrFamily = AF_INET }

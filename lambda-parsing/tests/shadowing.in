@@ -1,0 +1,35 @@
+let test1 = (
+  // The inner `x` should shadow the outer `x`.
+  let x = 10 in
+  let x = 20 in
+  x // Should evaluate to 20
+) in
+
+let test2 = (
+  // The `x` from the outer scope should be used.
+  let x = 5 in
+  (let y = 10 in x + y) + x // Should evaluate to (5 + 10) + 5 = 20
+) in
+
+let test3 = (
+  // The `y` from the inner `let` should shadow the `y` from the outer one.
+  let <x, y> = <1, 2> in
+  let <y, z> = <3, 4> in
+  y // Should evaluate to 3
+) in
+
+let test4 = (
+  // Using variables from different scopes with tuple patterns.
+  let <x, y> = <10, 20> in
+  let <y, z> = <30, 40> in
+  x + y + z // Should evaluate to 10 + 30 + 40 = 80
+) in
+
+let test5 = (
+  // The argument `x` shadows the outer `x`.
+  let x = 100 in
+  (fun x -> x * 2) 5 // Should evaluate to 10
+) in
+
+// Combine all results into a single tuple.
+<test1, test2, test3, test4, test5>

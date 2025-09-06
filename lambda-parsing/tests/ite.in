@@ -1,0 +1,7 @@
+// `ite c t e` evaluates `t` if `c` is non-zero (true), and `e` otherwise.
+// `==` returns 1 for true.
+ite (1 == 1) 100 200 // Should evaluate to 100
+
+// `==` returns 0 for false.
+// The condition is 0, so it should evaluate the 'else' branch.
+ite (1 == 0) 100 200 // Should evaluate to 200

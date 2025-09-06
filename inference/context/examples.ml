@@ -36,5 +36,34 @@ let e14 = EAbs ("x", ELetRec ("l", EApp (EApp (EVar "Cons", EVar "x"), EVar "l")
 let e15 = EAbs ("a", ELetRec ("x", EApp (EVar "a", EVar "x"), EVar "x"))
 (* let rec f = \x.f in f *)
 let e16 = ELetRec ("f", EAbs ("x", EVar "f"), EVar "f")
+(* let rec fact = \n. if n == 0 then 1 else n * (fact (n - 1)) in fact 5 *)
+let e17 =
+  ELetRec ("fact",
+    EAbs ("n",
+      EIfThenElse (EApp (EApp (EVar "Eq", EVar "n"), ELit (IntLit 0)),
+        ELit (IntLit 1),
+        EApp (EApp (EVar "Mult", EVar "n"),
+          EApp (EVar "fact",
+            EApp (EApp (EVar "Minus", EVar "n"), ELit (IntLit 1))
+          )
+        )
+      )
+    ),
+    EApp (EVar "fact", ELit (IntLit 5))
+  )
+(* \x. \l. Cons x l *)
+let e18 = EAbs ("x", EAbs ("l", EApp (EApp (EVar "Cons", EVar "x"), EVar "l")))
+(* let f = (\x. x) in (\y. f y) *)
+let e19 = ELet ("f", EAbs ("x", EVar "x"), EAbs ("y", EApp (EVar "f", EVar "y")))
+(* \f. f f *)
+let e20 = EAbs ("f", EApp (EVar "f", EVar "f"))
+(* 2 1 *)
+let e21 = EApp (ELit (IntLit 2), ELit (IntLit 1))
+(* \b. if b then 1 else [] *)
+let e22 = EAbs("b", EIfThenElse (EVar "b", ELit (IntLit 1), ELit ListNil))
+(* \f. let _ = f 1 in f true *)
+let e23 = EAbs ("f", ELet ("_", EApp (EVar "f", ELit (IntLit 1)), EApp (EVar "f", ELit (BoolLit true))))
+(* let l = [] in let _ = Cons 1 l in Cons true l *)
+let e24 = ELet ("l", ELit ListNil, ELet ("_", EApp (EApp (EVar "Cons", ELit (IntLit 1)), EVar "l"), EApp (EApp (EVar "Cons", ELit (BoolLit true)), EVar "l")))
 
-let e_arr = [e0; e1; e2; e3; e4; e5; e6; e7; e8; e9; e10; e11; e12; e13; e14; e15; e16]
+let e_arr = [e0; e1; e2; e3; e4; e5; e6; e7; e8; e9; e10; e11; e12; e13; e14; e15; e16; e17; e18; e19; e20; e21; e22; e23; e24]

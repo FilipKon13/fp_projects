@@ -2,10 +2,6 @@ module Http.Lib(executeHttp) where
 import Network.Socket
 import System.IO
 
------------------------------------------------------------------------------
--- 2. HTTP Backend Implementation (HttpM)
------------------------------------------------------------------------------
-
 -- HTTP Configuration
 httpHost :: HostName
 httpHost = "127.0.0.1"

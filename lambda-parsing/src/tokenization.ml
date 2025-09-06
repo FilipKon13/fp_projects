@@ -6,6 +6,21 @@ module CharInput = struct
 end
 open Monad.MakeParser(CharInput)
 
+let debug (name : string) (p : 'a parser) : 'a parser =
+  fun input ->
+    let input_str = CharInput.to_string input in
+    let prefix = if String.length input_str > 40 then String.sub input_str 0 40 ^ "..." else input_str in
+    Printf.printf "[%-16s] Trying on: \"%s\"\n" name (String.escaped prefix);
+    match p input with
+    | Some (result, rest) ->
+        let rest_str = CharInput.to_string rest in
+        let rest_prefix = if String.length rest_str > 40 then String.sub rest_str 0 40 ^ "..." else rest_str in
+        Printf.printf "[%-16s] Matched. Remaining: \"%s\"\n" name (String.escaped rest_prefix);
+        Some (result, rest)
+    | None ->
+        Printf.printf "[%-16s] Failed.\n" name;
+        None
+
 (* Char utilities *)
 let is_digit (c : char) : bool = '0' <= c && c <= '9'
 let is_alpha (c : char) : bool = ('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')
@@ -44,14 +59,13 @@ let eq      : operator parser = match_operator '=' Eq
 let lbrac   : operator parser = match_operator '<' LBrac
 let rbrac   : operator parser = match_operator '>' RBrac
 let comma   : operator parser = match_operator ',' Comma
+let plus    : operator parser = match_operator '+' Plus
+let minus   : operator parser = match_operator '-' Minus
+let mul     : operator parser = match_operator '*' Mul
+let comp    : operator parser = chr '=' >> chr '=' >> return Comp
 let arrow   : operator parser = chr '-' >> chr '>' >> return Arrow
 
 (* Literals *)
-let string_literal : literal parser =
-  chr '"' >>
-  many (fchar (fun c -> c != '"')) >>= fun chars ->
-  chr '"' >>
-  return (String (String.of_seq (List.to_seq chars)))
 
 let number_literal : literal parser = 
   some digit >>= fun digits ->
@@ -61,18 +75,13 @@ let number_literal : literal parser =
   else
     fail
 
-let char_literal : literal parser =
-  chr '\'' >>
-  fchar (fun _ -> true) >>= fun c ->
-  chr '\'' >>
-  return (Char c)
-
 let literal : token parser =
-  (string_literal <|> number_literal <|> char_literal) >>= fun lit ->
+  number_literal >>= fun lit ->
   return (Literal lit)
 
+(* `arrow` must be before `minus` and `comp` must be before `eq` *)
 let oper : token parser =
-  (slash <|> dot <|> lparen <|> rparen <|> eq <|> lbrac <|> rbrac <|> comma <|> arrow) >>= fun op -> 
+  (slash <|> arrow <|> dot <|> lparen <|> rparen <|> comp <|> plus <|> minus <|> mul <|> eq <|> lbrac <|> rbrac <|> comma) >>= fun op -> 
   return (Op op)
 let alphanum : char parser = alpha <|> digit
 let word (s : string) : unit parser = 
@@ -89,8 +98,9 @@ let word (s : string) : unit parser =
 let klet  : keyword parser = word "let" >> return Let
 let kin   : keyword parser = word "in" >> return In
 let kfun  : keyword parser = word "fun" >> return Fun
+let kite  : keyword parser = word "ite" >> return Ite
 let keyword : token parser =
-  (klet <|> kin <|> kfun) >>= fun k -> 
+  (klet <|> kin <|> kfun <|> kite) >>= fun k -> 
   return (Keyword k)
 let name : token parser =
   alpha >>= fun h ->
@@ -106,7 +116,7 @@ let comment : unit parser =
 
 let skip : unit parser = many (comment <|> whitespace) >> return ()
 
-let token : token parser = keyword <|> oper <|> name
+let token : token parser = keyword <|> oper <|> name <|> literal
 let tokenizer : token list parser =
   skip >>
   many (token << skip) >>= fun tokens ->
