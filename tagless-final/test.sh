@@ -56,6 +56,9 @@ echo "RPC server"
 ps -aux | grep rpc_server
 rpcinfo -p
 
+# Wait a while
+sleep 5
+
 # Verify that the servers are running
 if ! pgrep -f "python3 dist/http_server.py" > /dev/null;
 then
