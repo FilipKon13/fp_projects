@@ -2,7 +2,6 @@ module Http.Client(HttpM, runHttpM) where
 import Http.Lib
 import KVStore
 
--- | A newtype wrapper around IO to distinguish our HTTP implementation.
 newtype HttpM a = HttpM { runHttpM :: IO a }
   deriving (Functor, Applicative, Monad)
 

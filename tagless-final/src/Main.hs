@@ -10,7 +10,6 @@ import System.IO (hPutStrLn, stderr)
 
 -- A polymorphic function that uses the KeyValueStore interface.
 -- It can be run with any backend (RpcM, HttpM, or TestM).
-
 exampleInteraction :: KeyValueStore m => m ()
 exampleInteraction = do
   let v1 = "First value"

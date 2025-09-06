@@ -118,7 +118,10 @@ let type_to_scheme (t : typee) : scheme = generalize Context.empty t
 (* Context with 'builtins' *)
 let default_context : context =
   Context.empty
-  |> Context.add "Cons" @@ type_to_scheme (a => (l a => l a))
-  |> Context.add "Plus" @@ type_to_scheme (TInt => (TInt => TInt))
-  |> Context.add "fix"  @@ type_to_scheme ((a => a) => a)
-  |> Context.add "ite"  @@ type_to_scheme (TBool => (a => (a => a)))
+  |> Context.add "Cons"   @@ type_to_scheme (a => (l a => l a))
+  |> Context.add "Plus"   @@ type_to_scheme (TInt => (TInt => TInt))
+  |> Context.add "Minus"  @@ type_to_scheme (TInt => (TInt => TInt))
+  |> Context.add "Mult"   @@ type_to_scheme (TInt => (TInt => TInt))
+  |> Context.add "Eq"     @@ type_to_scheme (TInt => (TInt => TBool))
+  |> Context.add "fix"    @@ type_to_scheme ((a => a) => a)
+  |> Context.add "ite"    @@ type_to_scheme (TBool => (a => (a => a)))

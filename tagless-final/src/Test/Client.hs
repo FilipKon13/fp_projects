@@ -3,7 +3,6 @@ import Data.IORef (IORef, newIORef, readIORef, modifyIORef')
 import Data.Map (Map, findWithDefault, insert)
 import KVStore
 
--- | For testing, our monad is an IO monad with a mutable Map.
 newtype TestM a = TestM { run :: IORef (Map Int String) -> IO a }
 
 instance Functor TestM where
@@ -18,7 +17,6 @@ instance Monad TestM where
     result <- m ref
     run (f result) ref
 
--- | Instance implementation for TestM using IORef.
 instance KeyValueStore TestM where
   requestPost key val = TestM $ \ref ->
     modifyIORef' ref (insert key val)
@@ -26,7 +24,6 @@ instance KeyValueStore TestM where
     m <- readIORef ref
     return $ findWithDefault "" key m
 
--- | A helper function to execute a TestM action.
 runTestM :: TestM a -> IO a
 runTestM (TestM m) = do
   ref <- newIORef mempty -- Start with an empty map.

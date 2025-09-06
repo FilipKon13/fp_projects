@@ -1,0 +1,23 @@
+// A nested tuple is created and then deconstructed using a nested pattern.
+let test1 = (
+  let nested = <1, <2, 3>, 4> in
+  let <x, <y, z>, w> = nested in
+  x + y + z + w // Should be 1 + 2 + 3 + 4 = 10
+) in
+
+// A function that accepts an empty tuple (like a unit type) is defined and called.
+let test2 = (
+  let get_unit_val = fun <> -> 42 in
+  get_unit_val <> // Should be 42
+) in
+
+// This verifies that pattern matching on an empty tuple works correctly.
+let test3 = (
+  let <> = <> in
+  2025 // Should be 2025
+) in
+
+let test4 = <> in
+
+// The expected final result is <10, 42, 2025, <>>.
+<test1, test2, test3, test4>

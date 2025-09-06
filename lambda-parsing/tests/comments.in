@@ -1,0 +1,5 @@
+// The parser should ignores everything from `//` to the end of the line.
+let one = 1 // This is a line comment.
+in
+one + one   // This line is parsed as `one + one`.
+            // The expected result is 2.

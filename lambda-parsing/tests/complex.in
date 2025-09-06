@@ -1,0 +1,18 @@
+// Define the Y-combinator for recursion.
+let Y = fun f -> (fun x -> f (x x)) (fun x -> f (x x)) in
+
+// Define a value that will be shadowed later.
+let base = 100 in
+
+let power = Y (fun pow ->
+  fun <base, exp> ->
+    ite (exp == 0)
+      1
+      (base * (pow <base, exp - 1>))
+) in
+
+let compute = fun <a, b, c> -> (power <a, b>) + (power <b, c>) in
+
+// Expected: (power <2, 5>) + (power <5, 2>)
+//         = 32 + 25 = 57
+compute <2, 5, 2>

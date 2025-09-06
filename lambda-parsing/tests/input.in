@@ -1,0 +1,5 @@
+// This tests if we can normalize terms without string normalization property.
+let letomega = \ x_0 . x_0 x_0 in
+let inOmegain = letomega letomega in
+let K = \ x y . x in
+K x inOmegain

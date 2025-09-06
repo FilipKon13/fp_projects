@@ -1,0 +1,12 @@
+<
+117,
+0,
+
+10 + 5, // Should be 15
+10 - 5, // Should be 5
+10 * 5, // Should be 50
+
+// `==` should return 1 for true and a zero for false.
+10 == 10, // Should be one (true)
+10 == 5  // Should be zero (false)
+>
