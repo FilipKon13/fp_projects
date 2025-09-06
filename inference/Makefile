@@ -14,5 +14,6 @@ clean:
 	make -C base clean
 	make -C context clean
 	make -C rules clean
+	rm -f test.log
 
 .PHONY: build clean test

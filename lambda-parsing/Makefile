@@ -21,7 +21,7 @@ run: main
 	./main
 
 clean:
-	rm -f main src/*.cmi src/*.cmo
+	rm -f main src/*.cmi src/*.cmo test.log
 
 .PHONY: run clean test test-one
 

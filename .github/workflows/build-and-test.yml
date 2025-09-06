@@ -37,7 +37,7 @@ jobs:
         if: always()
         with:
           name: tf-test.log
-          path: test.log
+          path: ./tagless-final/test.log
 
   inference:
     runs-on: ubuntu-latest
@@ -68,7 +68,7 @@ jobs:
         if: always()
         with:
           name: inference-test.log
-          path: test.log
+          path: ./inference/test.log
 
   lambda-parsing:
     runs-on: ubuntu-latest
@@ -99,4 +99,4 @@ jobs:
         if: always()
         with:
           name: lp-test.log
-          path: test.log
+          path: ./lambda-parsing/test.log
