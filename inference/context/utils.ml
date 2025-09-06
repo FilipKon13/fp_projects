@@ -1,0 +1,34 @@
+open Types
+
+let rec string_of_expr = function
+  | EVar x -> x
+  | EApp (e1, e2) -> "(" ^ string_of_expr e1
+                    ^ " " ^ string_of_expr e2 ^ ")"
+  | EAbs (x, e) -> "(λ" ^ x ^ ". " ^ string_of_expr e ^ ")"
+  | ELet (x, e1, e2) -> "(let " ^ x
+                    ^ " = " ^ string_of_expr e1
+                    ^ " in " ^ string_of_expr e2 ^ ")"
+  | ELit (IntLit n) -> string_of_int n
+  | ELit ListNil -> "[]"
+  | ELit (BoolLit b) -> string_of_bool b
+  | ELetRec (f, e1, e2) -> "(let rec " ^ f
+                    ^ " = " ^ string_of_expr e1
+                    ^ " in " ^ string_of_expr e2 ^ ")"
+  | EIfThenElse (e1, e2, e3) -> "(if " ^ string_of_expr e1
+                    ^ " then " ^ string_of_expr e2
+                    ^ " else " ^ string_of_expr e3 ^ ")"
+
+let rec string_of_type = function
+  | TVar x -> x
+  | TFun (t1, t2) -> "(" ^ string_of_type t1
+                    ^ " -> " ^ string_of_type t2 ^ ")"
+  | TList t -> "[" ^ string_of_type t ^ "]"
+  | TInt -> "Int"
+  | TBool -> "Bool"
+
+let string_of_scheme (Scheme (vars, ty)) =
+  let vars_str = String.concat ", " vars in
+  "∀" ^ vars_str ^ ". " ^ string_of_type ty
+
+let string_of_context (ctx: context) : string =
+  "{" ^ Context.fold (fun k v acc -> acc ^ k ^ " : " ^ string_of_scheme v ^ ", ") ctx "" ^ "}"

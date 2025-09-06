@@ -7,8 +7,12 @@ on:
   pull_request:
 
 jobs:
-  build-and-test:
+  tagless-final:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./tagless-final
 
     steps:
       - name: Checkout repository
@@ -18,7 +22,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ghc make gcc build-essential libtirpc-dev rpcbind
-      
+
       - name: Run build script
         run: |
           cabal update
@@ -30,7 +34,71 @@ jobs:
       
       - name: Upload test log
         uses: actions/upload-artifact@v4
-        if: always() # This ensures the step runs even if the previous step fails
+        if: always()
         with:
-          name: test-results-log
+          name: tf-test.log
+          path: test.log
+
+  inference:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./inference
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential opam
+
+      - name: Setup OCaml
+        run: |
+          opam init --assume-default-answer
+          eval $(opam env)
+          opam install ocaml
+
+      - name: Run makefile and tests
+        run: make test &> test.log
+      
+      - name: Upload test log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: inference-test.log
+          path: test.log
+
+  lambda-parsing:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./lambda-parsing
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential opam
+
+      - name: Setup OCaml
+        run: |
+          opam init --assume-default-answer
+          eval $(opam env)
+          opam install ocaml
+
+      - name: Run makefile and tests
+        run: make test &> test.log
+
+      - name: Upload test log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lp-test.log
           path: test.log
