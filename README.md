@@ -49,4 +49,4 @@ This project is a complete implementation of the Hindley-Milner type inference a
 
 Each project is self-contained and has its own build and execution instructions. Please navigate to the respective project directory and consult its `README.md` file for details.
 
-Test suites are executed as of the CI pipeline.
+Test suites are executed in the CI pipeline.
